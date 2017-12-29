@@ -1,0 +1,7 @@
+{
+  "name":"influxTimeShift",
+  "type":"InfluxDB",
+  "url":"http://localhost:8089",
+  "access":"direct",
+  "basicAuth":false
+}
