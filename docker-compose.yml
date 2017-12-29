@@ -1,0 +1,35 @@
+influxdb:
+  image: influxdb:1.4.2
+  container_name: influxdb
+  ports:
+    - "8083:8083"
+    - "8086:8086"
+    - "8090:8090"
+  env_file:
+    - 'env.influxdb'
+  volumes:
+    # Data persistency
+    # sudo mkdir -p /srv/docker/influxdb/data
+    - /Volumes/eto-external-drive/extremeVetting/applesToApples/influxData:/var/lib/influxdb
+
+timeshift:
+  tty: true
+  stdin_open: true
+  image: thedrhax/influxdb-timeshift-proxy:1.0
+  container_name: timeshift
+  ports:
+    - "8089:8089"
+  env_file:
+    - 'env.timeshift'
+  links:
+    - influxdb
+
+grafana:
+  image: grafana/grafana:4.2.0
+  container_name: grafana
+  ports:
+    - "3000:3000"
+  env_file:
+    - 'env.grafana'
+  links:
+    - influxdb
