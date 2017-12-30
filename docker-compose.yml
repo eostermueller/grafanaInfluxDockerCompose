@@ -10,7 +10,7 @@ influxdb:
   volumes:
     # Data persistency
     # sudo mkdir -p /srv/docker/influxdb/data
-    - /Volumes/eto-external-drive/extremeVetting/applesToApples/influxData:/var/lib/influxdb
+    - ./influxDbData:/var/lib/influxdb
 
 timeshift:
   tty: true
@@ -33,3 +33,5 @@ grafana:
     - 'env.grafana'
   links:
     - influxdb
+  volumes:
+    - ./grafanaPublicDashboards:/usr/share/grafana/public/dashboards

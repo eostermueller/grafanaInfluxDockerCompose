@@ -13,7 +13,7 @@ curl -G "http://localhost:8086/query?pretty=true" --data-urlencode "q=SHOW DATAB
 ######
 ###### G R A F A N A
 ######
-curl -L --max-time 10 -i -u admin:admin -H "Accept:application/json" -H "Content-Type:application/json" -d  @createDataSource.txt http://localhost:3000/api/datasources
+curl -L --max-time 10 -i -u admin:admin -H "Accept:application/json" -H "Content-Type:application/json" -d  @createDataSource.json http://localhost:3000/api/datasources
 
 curl -L --max-time 10 -f http://admin:admin@localhost:3000/api/datasources/name/influxTimeShift
 
