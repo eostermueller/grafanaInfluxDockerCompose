@@ -1,7 +1,16 @@
 # docker-compose.yml for Grafana and InfluxDB
 
 Install a Docker-based Grafana+InfluxDB dashboarding solution in minutes.
+
+Features:
+ - Drop your .js [Grafana scripted dashboard](http://docs.grafana.org/reference/scripting/) into the 'dashboard' folder
+ - Backup all your influxdb data from a single exposed folder (influxDbData).
+ - Includes a conatiner to use jmxtrans.org to push data to influxdb.
+ - Enhanced influxdb syntax using [the timeshift proxy](https://github.com/maxsivanov/influxdb-timeshift-proxy)
+
 The docker-compose.yml file houses the main configuration. For details on docker-compose, see https://docs.docker.com/compose/
+
+Large portions of this were shamelessly stolen from [here](https://github.com/jekkos/grafana-influx-jmxtrans) and [here](https://github.com/nicolargo/docker-influxdb-grafana).
 
 ## Install and Startup
  1. Install docker:  https://docs.docker.com/engine/installation/
@@ -27,3 +36,6 @@ This script errors out, unless you wait 30 seconds are so after running the up.s
 
 The timeshift proxy provides other syntax enhancements (like math functions) that are not currently available in influxdb.
 For details, see https://github.com/maxsivanov/influxdb-timeshift-proxy.
+
+  [1]: https://github.com/jekkos/grafana-influx-jmxtrans
+  [2]: https://github.com/nicolargo/docker-influxdb-grafana
