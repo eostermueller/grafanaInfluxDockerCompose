@@ -41,3 +41,8 @@ For details, see https://github.com/maxsivanov/influxdb-timeshift-proxy.
 
 You can execute InfluxDB queries like this:
     curl 'http://localhost:8086/query?pretty=true' --data-urlencode "db=jmeter" --data-urlencode "q=SHOW MEASUREMENTS"
+
+You can open a bash shell into one of the containers (influx, grafana, jmxtrans, timeshift proxy) using this command:
+    docker exec -it c1e191de07b1 bash
+
+...where the guid looking thing is the "CONTAINER ID" from a "docker ps -s" command while the up.sh is running.
