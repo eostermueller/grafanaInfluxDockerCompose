@@ -34,7 +34,7 @@ grafana:
   links:
     - influxdb
   volumes:
-    - ./grafanaPublicDashboards:/usr/share/grafana/public/dashboards
+    - ./dashboards:/usr/share/grafana/public/dashboards
 
 #jmxtrans:
 #  image: jmxtrans/jmxtrans:latest
