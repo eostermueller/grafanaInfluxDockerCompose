@@ -43,6 +43,10 @@ For details, see https://github.com/maxsivanov/influxdb-timeshift-proxy.
     ```
     curl 'http://localhost:8086/query?pretty=true' --data-urlencode "db=jmeter" --data-urlencode "q=SHOW MEASUREMENTS"
     ```
+ - Execute InfluxDB queries with [enhance syntax(timeshift, math functions)](https://github.com/maxsivanov/influxdb-timeshift-proxy) like this.  Note the **only** differences is the port:  8089 instead of 8086
+    ``` 
+    curl 'http://localhost:8089/query?pretty=true' --data-urlencode "db=jmeter" --data-urlencode "q=SHOW MEASUREMENTS"
+    ``` 
 
  - Test whether the containers are running.  Shows one line for each container:
     ```
@@ -58,5 +62,4 @@ For details, see https://github.com/maxsivanov/influxdb-timeshift-proxy.
     docker exec -it 61705467ed5d bash
     ```
 
-...and note that the 61705467ed5d came from the "CONTAINER ID" column for the grafana container from the "docker ps -s" command above.
 
