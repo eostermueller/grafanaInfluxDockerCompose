@@ -1,2 +1,3 @@
 influxDbData/meta/
 influxDbData/wal/
+influxDbData/data/
