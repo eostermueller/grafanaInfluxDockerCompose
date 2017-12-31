@@ -39,25 +39,24 @@ For details, see https://github.com/maxsivanov/influxdb-timeshift-proxy.
 
 ## Resources
 
-Execute InfluxDB queries like this:
+ - Execute InfluxDB queries like this:
+    ```
     curl 'http://localhost:8086/query?pretty=true' --data-urlencode "db=jmeter" --data-urlencode "q=SHOW MEASUREMENTS"
+    ```
 
-
-...where the guid looking thing is the "CONTAINER ID" from a "docker ps -s" command while the up.sh is running.
-
-Test whether the containers are running.  Execute this command:
-    docker ps -s
-
-...and it shows one line for each container:
-
+ - Test whether the containers are running.  Shows one line for each container:
+    ```
+    # docker ps -s
     CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS
     3acb00c43d15        thedrhax/influxdb-timeshift-proxy:1.0   "/bin/sh -c 'npm r..."   38 minutes ago      Up 38 minutes       0.0.0.0:8089->8089/tcp
     61705467ed5d        grafana/grafana:4.2.0                   "/run.sh"                38 minutes ago      Up 38 minutes       0.0.0.0:3000->3000/tcp
     582cbde4d7b5        influxdb:1.4.2                          "/entrypoint.sh in..."   38 minutes ago      Up 38 minutes       0.0.0.0:8083->8083/tcp, 0.0.0.0:8086->8086/tcp, 0.0.0.0:8090->8090~
+    ```
 
-
-Open a bash shell into one of the containers (influx, grafana, jmxtrans, timeshift proxy) using this command:
+ - Open a bash shell into one of the running containers (influx, grafana, jmxtrans, timeshift proxy).  The "CONTAINER ID" 61705467ed5d (to the left of grafana/grafana:4.2.0 above) is used to start a bash shell into the Grafana container.
+    ```
     docker exec -it 61705467ed5d bash
+    ```
 
 ...and note that the 61705467ed5d came from the "CONTAINER ID" column for the grafana container from the "docker ps -s" command above.
 
