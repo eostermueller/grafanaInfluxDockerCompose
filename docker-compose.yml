@@ -35,3 +35,27 @@ grafana:
     - influxdb
   volumes:
     - ./grafanaPublicDashboards:/usr/share/grafana/public/dashboards
+
+#jmxtrans:
+#  image: jmxtrans/jmxtrans:latest
+#  depends_on:
+#    - influxdb
+#  links:
+#    - influxdb
+#    - grafana
+#  environment:
+#    - JMX_HOST_TEST=192.168.1.235
+##    - JMX_HOST_TEST=docker.for.mac.localhost
+#    - JMX_PORT_TEST=9998
+#    - JMX_ALIAS_TEST=TEST
+#    - INFLUXDB_USER=root
+#    - INFLUXDB_PASSWORD=root
+#    - INFLUXDB_NAME=influx
+#    - INFLUXDB_URL=http://influxdb:8086
+#  volumes:
+#    - ./config/types.db:/usr/share/collectd/types.db:ro
+#    - ./config/localtime:/etc/localtime:ro
+#    - ./config/timezone:/etc/timezone:ro
+#    - ./config/influxdb.json.tmpl:/var/lib/jmxtrans/influxdb.json.tmpl
+#    - ./config/grafanadashboard.json.tmpl:/dashboards/grafanadashboard.json.tmpl
+#    - ./config/docker-entrypoint.sh:/docker-entrypoint.sh
