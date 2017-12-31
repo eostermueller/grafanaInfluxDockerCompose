@@ -37,3 +37,7 @@ This script errors out, unless you wait 30 seconds are so after running the up.s
 The timeshift proxy provides other syntax enhancements (like math functions) that are not currently available in influxdb.
 For details, see https://github.com/maxsivanov/influxdb-timeshift-proxy.
 
+## Resources
+
+You can execute InfluxDB queries like this:
+    curl 'http://localhost:8086/query?pretty=true' --data-urlencode "db=jmeter" --data-urlencode "q=SHOW MEASUREMENTS"
